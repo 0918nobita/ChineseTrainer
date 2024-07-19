@@ -1,4 +1,5 @@
 use godot::{classes::INode2D, prelude::*};
+use std::str::FromStr;
 
 struct MyExtension;
 
@@ -17,5 +18,13 @@ impl INode2D for Example {
 
     fn ready(&mut self) {
         godot_print!("Hello world from Rust!");
+    }
+}
+
+#[godot_api]
+impl Example {
+    #[func]
+    fn rust() -> GString {
+        GString::from_str("Rust").expect("Failed to generate GString")
     }
 }

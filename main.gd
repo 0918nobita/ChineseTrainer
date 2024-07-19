@@ -11,7 +11,7 @@ extends Node2D
 var score: int
 
 func _ready() -> void:
-    pass
+    print(Example.rust())
 
 func _process(_delta: float) -> void:
     pass
