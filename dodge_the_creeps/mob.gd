@@ -2,7 +2,7 @@ extends RigidBody2D
 
 class_name Mob
 
-const Scene := preload('res://mob.tscn')
+const Scene := preload('res://dodge_the_creeps/mob.tscn')
 
 static func instantiate() -> Mob:
     return Scene.instantiate() as Mob

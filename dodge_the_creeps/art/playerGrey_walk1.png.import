@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dxyoa8dopop2s"
-path="res://.godot/imported/enemyFlyingAlt_1.png-559f599b16c69b112c1b53f6332e9489.ctex"
+uid="uid://bu5htu46tr811"
+path="res://.godot/imported/playerGrey_walk1.png-f75478425879263d907ef5d24a72dd41.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/enemyFlyingAlt_1.png"
-dest_files=["res://.godot/imported/enemyFlyingAlt_1.png-559f599b16c69b112c1b53f6332e9489.ctex"]
+source_file="res://dodge_the_creeps/art/playerGrey_walk1.png"
+dest_files=["res://.godot/imported/playerGrey_walk1.png-f75478425879263d907ef5d24a72dd41.ctex"]
 
 [params]
 
