@@ -19,6 +19,10 @@ config/icon="res://icon.svg"
 
 general/text_to_speech=true
 
+[debug]
+
+gdscript/warnings/integer_division=0
+
 [display]
 
 window/energy_saving/keep_screen_on=false
