@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://dsccxoc1najrd"]
+[gd_scene load_steps=3 format=3 uid="uid://dsccxoc1najrd"]
 
 [ext_resource type="Script" path="res://words.gd" id="1_uwofy"]
+[ext_resource type="LabelSettings" uid="uid://ckhay07kd736o" path="res://font.tres" id="2_27lsg"]
 
 [node name="Root" type="Control"]
 layout_mode = 3
@@ -19,48 +20,39 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="HScroll" type="ScrollContainer" parent="VBoxContainer"]
+[node name="HeaderScroll" type="ScrollContainer" parent="VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
 horizontal_scroll_mode = 3
 vertical_scroll_mode = 0
 
-[node name="VBox" type="VBoxContainer" parent="VBoxContainer/HScroll"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="Header" type="GridContainer" parent="VBoxContainer/HScroll/VBox"]
+[node name="Header" type="GridContainer" parent="VBoxContainer/HeaderScroll"]
 unique_name_in_owner = true
 layout_mode = 2
 columns = 3
 
-[node name="Zh" type="Label" parent="VBoxContainer/HScroll/VBox/Header"]
+[node name="Zh" type="Label" parent="VBoxContainer/HeaderScroll/Header"]
 layout_mode = 2
 text = "中国語"
+label_settings = ExtResource("2_27lsg")
 
-[node name="Pinyin" type="Label" parent="VBoxContainer/HScroll/VBox/Header"]
+[node name="Pinyin" type="Label" parent="VBoxContainer/HeaderScroll/Header"]
 layout_mode = 2
 text = "ピンイン"
+label_settings = ExtResource("2_27lsg")
 
-[node name="Ja" type="Label" parent="VBoxContainer/HScroll/VBox/Header"]
+[node name="Ja" type="Label" parent="VBoxContainer/HeaderScroll/Header"]
 layout_mode = 2
 text = "意味"
+label_settings = ExtResource("2_27lsg")
 
-[node name="VScroll" type="ScrollContainer" parent="VBoxContainer/HScroll/VBox"]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_vertical = 3
-horizontal_scroll_mode = 0
-
-[node name="Rows" type="GridContainer" parent="VBoxContainer/HScroll/VBox/VScroll"]
-unique_name_in_owner = true
-layout_mode = 2
-columns = 3
-
-[node name="HScrollBar" type="HScrollBar" parent="VBoxContainer"]
+[node name="Scroll" type="ScrollContainer" parent="VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Rows" type="GridContainer" parent="VBoxContainer/Scroll"]
+unique_name_in_owner = true
+layout_mode = 2
+columns = 3
