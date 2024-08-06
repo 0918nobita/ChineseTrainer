@@ -5,3 +5,4 @@
 [resource]
 font = ExtResource("1_h7b2b")
 font_size = 25
+font_color = Color(0.772549, 0.819608, 0.870588, 1)

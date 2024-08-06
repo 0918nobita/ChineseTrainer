@@ -1,12 +1,10 @@
 extends Control
 
-#const savedata_path := 'user://savedata.json'
-
 var words: Array[Word] = [
-    Word.new('你好', 'nǐ hǎo', 'こんにちは'),
-    Word.new('谢谢', 'xiè xiè', 'ありがとう'),
-    Word.new('再见', 'zài jiàn', 'さようなら'),
-    Word.new('了', 'le', 'めっっっっっっっっっっっっっっっっっっっっっっちゃ長い説明')
+    Word.new('不了', 'bù le', '結構です'),
+    Word.new('认识', 'rèn shi', '知り合う'),
+    Word.new('获得', 'huò dé', '獲得する'),
+    Word.new('校长', 'xiào zhǎng', '校長'),
 ]
 
 @onready var header_scroll := $%HeaderScroll as ScrollContainer
@@ -23,34 +21,31 @@ var zh_width := 0
 var pinyin_width := 0
 var ja_width := 0
 
+func _add_row(text: String) -> Label:
+    var label := Label.new()
+    label.text = text
+    label.set_anchors_preset(Control.PRESET_FULL_RECT)
+    label.set_label_settings(label_settings)
+    return label
+
 func _ready() -> void:
-    for i in range(100):
-        for word in words:
-            var zh_label := Label.new()
-            zh_label.text = word.zh
-            zh_label.set_anchors_preset(Control.PRESET_FULL_RECT)
-            zh_label.set_label_settings(label_settings)
-            var pinyin_label := Label.new()
-            pinyin_label.text = word.pinyin
-            pinyin_label.set_anchors_preset(Control.PRESET_FULL_RECT)
-            pinyin_label.set_label_settings(label_settings)
-            var ja_label := Label.new()
-            ja_label.text = word.ja
-            ja_label.set_anchors_preset(Control.PRESET_FULL_RECT)
-            ja_label.set_label_settings(label_settings)
-            rows.add_child(zh_label)
-            zh_width = max(zh_width, zh_label.size.x)
-            rows.add_child(pinyin_label)
-            pinyin_width = max(pinyin_width, pinyin_label.size.x)
-            rows.add_child(ja_label)
-            ja_width = max(ja_width, ja_label.size.x)
+    for word in words:
+        var zh_label := _add_row(word.zh)
+        var pinyin_label := _add_row(word.pinyin)
+        var ja_label := _add_row(word.ja)
+        rows.add_child(zh_label)
+        zh_width = max(zh_width, zh_label.size.x)
+        rows.add_child(pinyin_label)
+        pinyin_width = max(pinyin_width, pinyin_label.size.x)
+        rows.add_child(ja_label)
+        ja_width = max(ja_width, ja_label.size.x)
 
     zh_width = max(zh_width, zh_header.size.x)
     pinyin_width = max(pinyin_width, pinyin_header.size.x)
     ja_width = max(ja_width, ja_header.size.x)
-    call_deferred('layout')
+    call_deferred('_layout')
 
-func layout() -> void:
+func _layout() -> void:
     for i_row in range(rows.get_child_count() / 3):
         var zh_cell := rows.get_child(i_row * 3) as Label
         zh_cell.custom_minimum_size.x = zh_width
@@ -70,14 +65,3 @@ func _process(_delta: float) -> void:
 
 func _on_h_scroll(val: int) -> void:
     header_scroll.scroll_horizontal = val
-
-#func save_json(data: Variant) -> void:
-    #var file := FileAccess.open(savedata_path, FileAccess.WRITE_READ)
-    #file.store_string(JSON.stringify(data))
-    #file.close()
-
-#func load_json() -> Variant:
-    #var file := FileAccess.open(savedata_path, FileAccess.READ)
-    #var content := file.get_as_text()
-    #file.close()
-    #return JSON.parse_string(content)

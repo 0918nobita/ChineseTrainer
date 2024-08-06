@@ -11,13 +11,17 @@ config_version=5
 [application]
 
 config/name="ChineseTrainer"
-run/main_scene="res://words.tscn"
+run/main_scene="res://title.tscn"
 config/features=PackedStringArray("4.2", "Mobile")
 config/icon="res://icon.svg"
 
 [audio]
 
 general/text_to_speech=true
+
+[autoload]
+
+GameManager="*res://game_manager.gd"
 
 [debug]
 

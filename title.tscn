@@ -1,0 +1,35 @@
+[gd_scene load_steps=3 format=3 uid="uid://bk57t4umw6gn7"]
+
+[ext_resource type="Script" path="res://title.gd" id="1_xg2sl"]
+[ext_resource type="FontFile" uid="uid://dxqvy8q3l5bsy" path="res://fonts/NotoSansSC-Regular.ttf" id="2_7lr3v"]
+
+[node name="Root" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xg2sl")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.133333, 0.152941, 0.180392, 1)
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 72.0
+offset_bottom = 31.0
+theme_override_fonts/font = ExtResource("2_7lr3v")
+theme_override_font_sizes/font_size = 25
+text = "単語一覧"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
