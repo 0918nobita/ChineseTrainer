@@ -1,12 +1,5 @@
 extends Control
 
-var words: Array[Word] = [
-    Word.new('不了', 'bù le', '結構です'),
-    Word.new('认识', 'rèn shi', '知り合う'),
-    Word.new('获得', 'huò dé', '獲得する'),
-    Word.new('校长', 'xiào zhǎng', '校長'),
-]
-
 @onready var header_scroll := $%HeaderScroll as ScrollContainer
 @onready var header := $%Header as GridContainer
 @onready var zh_header := $%Header/Zh as Label
@@ -29,7 +22,7 @@ func _add_row(text: String) -> Label:
     return label
 
 func _ready() -> void:
-    for word in words:
+    for word in GameManager.words:
         var zh_label := _add_row(word.zh)
         var pinyin_label := _add_row(word.pinyin)
         var ja_label := _add_row(word.ja)
