@@ -9,6 +9,8 @@ var words: Array[Word] = [
     Word.new('认识', 'rèn shi', '知り合う'),
     Word.new('获得', 'huò dé', '獲得する'),
     Word.new('校长', 'xiào zhǎng', '校長'),
+    Word.new('帮忙', 'bāng máng', '手伝う'),
+    Word.new('而且', 'érqiě', 'その上'),
 ]
 
 func load_words_scene() -> void:
